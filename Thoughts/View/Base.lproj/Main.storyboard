@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--MainVC-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="MainVC" customModule="Thoughts" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" largeTitles="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hQY-95-EzX">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="96"/>
+                                <color key="barTintColor" red="0.25126830769699782" green="0.74831212417043369" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                </textAttributes>
+                                <textAttributes key="largeTitleTextAttributes">
+                                    <fontDescription key="fontDescription" name="SnellRoundhand-Black" family="Snell Roundhand" pointSize="38"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </textAttributes>
+                                <items>
+                                    <navigationItem title="Thoughts" id="mAl-hd-eSh">
+                                        <barButtonItem key="rightBarButtonItem" systemItem="compose" id="nod-TN-dwC">
+                                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <connections>
+                                                <action selector="comboseBtnWasPressed:" destination="BYZ-38-t0r" id="YtH-cf-FmP"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="50" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="8b8-58-Vzn">
+                                <rect key="frame" x="0.0" y="96" width="375" height="571"/>
+                                <color key="backgroundColor" red="0.35791748762130737" green="0.77847087383270264" blue="0.99776178598403931" alpha="0.32475385273972601" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="separatorColor" red="0.25126830770000003" green="0.74831212420000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="tcM-RI-0xm"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="Akf-yQ-YSk"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="hQY-95-EzX" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="9NJ-iM-MnR"/>
+                            <constraint firstItem="8b8-58-Vzn" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="S0H-Gf-DFF"/>
+                            <constraint firstItem="8b8-58-Vzn" firstAttribute="top" secondItem="hQY-95-EzX" secondAttribute="bottom" id="S9r-pB-Lsy"/>
+                            <constraint firstAttribute="trailing" secondItem="hQY-95-EzX" secondAttribute="trailing" id="U1W-rS-fJ0"/>
+                            <constraint firstAttribute="bottom" secondItem="8b8-58-Vzn" secondAttribute="bottom" id="biG-ti-lOS"/>
+                            <constraint firstAttribute="trailing" secondItem="8b8-58-Vzn" secondAttribute="trailing" id="cAm-ho-Mej"/>
+                            <constraint firstItem="hQY-95-EzX" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="d4Z-DC-dnB"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="8b8-58-Vzn" id="39e-nm-tf1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="28" y="32.833583208395808"/>
+        </scene>
+    </scenes>
+</document>
