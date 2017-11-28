@@ -22,6 +22,7 @@ class MainVC: UIViewController {
 
     @IBAction func comboseBtnWasPressed(_ sender: Any) {
         AlertService.composeThought(in: self) { (thought) in
+            CloudKitService.shared.save(record: thought.thoughtRecord())
             self.insert(thought: thought)
         }
     }

@@ -14,6 +14,8 @@
 		7BAA887E1FCDB603006CB545 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7BAA887C1FCDB603006CB545 /* LaunchScreen.storyboard */; };
 		7BAA888A1FCDBA1E006CB545 /* Thought.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BAA88891FCDBA1E006CB545 /* Thought.swift */; };
 		7BAA888C1FCDBAF2006CB545 /* AlertService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BAA888B1FCDBAF2006CB545 /* AlertService.swift */; };
+		7BAA88901FCDCBE7006CB545 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BAA888F1FCDCBE7006CB545 /* CloudKit.framework */; };
+		7BAA88921FCDCC7D006CB545 /* CloudKitService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BAA88911FCDCC7D006CB545 /* CloudKitService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,9 @@
 		7BAA887F1FCDB603006CB545 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7BAA88891FCDBA1E006CB545 /* Thought.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Thought.swift; sourceTree = "<group>"; };
 		7BAA888B1FCDBAF2006CB545 /* AlertService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertService.swift; sourceTree = "<group>"; };
+		7BAA888D1FCDCBE3006CB545 /* Thoughts.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Thoughts.entitlements; sourceTree = "<group>"; };
+		7BAA888F1FCDCBE7006CB545 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		7BAA88911FCDCC7D006CB545 /* CloudKitService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +38,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7BAA88901FCDCBE7006CB545 /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,6 +50,7 @@
 			children = (
 				7BAA88721FCDB603006CB545 /* Thoughts */,
 				7BAA88711FCDB603006CB545 /* Products */,
+				7BAA888E1FCDCBE7006CB545 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,6 +65,7 @@
 		7BAA88721FCDB603006CB545 /* Thoughts */ = {
 			isa = PBXGroup;
 			children = (
+				7BAA888D1FCDCBE3006CB545 /* Thoughts.entitlements */,
 				7BAA88881FCDB6AD006CB545 /* Service */,
 				7BAA88871FCDB6A8006CB545 /* Model */,
 				7BAA88861FCDB6A3006CB545 /* View */,
@@ -98,8 +106,17 @@
 			isa = PBXGroup;
 			children = (
 				7BAA888B1FCDBAF2006CB545 /* AlertService.swift */,
+				7BAA88911FCDCC7D006CB545 /* CloudKitService.swift */,
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		7BAA888E1FCDCBE7006CB545 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7BAA888F1FCDCBE7006CB545 /* CloudKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -135,6 +152,14 @@
 					7BAA886F1FCDB603006CB545 = {
 						CreatedOnToolsVersion = 9.1;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -177,6 +202,7 @@
 				7BAA88761FCDB603006CB545 /* MainVC.swift in Sources */,
 				7BAA88741FCDB603006CB545 /* AppDelegate.swift in Sources */,
 				7BAA888C1FCDBAF2006CB545 /* AlertService.swift in Sources */,
+				7BAA88921FCDCC7D006CB545 /* CloudKitService.swift in Sources */,
 				7BAA888A1FCDBA1E006CB545 /* Thought.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -314,9 +340,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Thoughts/Thoughts.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 999T2QHS45;
 				INFOPLIST_FILE = Thoughts/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.dreamerongo.Thoughts;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -329,9 +357,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Thoughts/Thoughts.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 999T2QHS45;
 				INFOPLIST_FILE = Thoughts/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.dreamerongo.Thoughts;
 				PRODUCT_NAME = "$(TARGET_NAME)";

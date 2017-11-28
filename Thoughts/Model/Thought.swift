@@ -7,7 +7,17 @@
 //
 
 import Foundation
+import CloudKit
 
 struct Thought {
+    
+    static let recordType = "Thought"
     let title: String
+    
+    func thoughtRecord() -> CKRecord {
+        let record = CKRecord(recordType: Thought.recordType)
+        record.setValue(title, forKey: "title")
+        
+        return record
+    }
 }
