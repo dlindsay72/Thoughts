@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7B14BCC51FCDF91400274EC7 /* ThoughtsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B14BCC41FCDF91400274EC7 /* ThoughtsService.swift */; };
 		7BAA88741FCDB603006CB545 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BAA88731FCDB603006CB545 /* AppDelegate.swift */; };
 		7BAA88761FCDB603006CB545 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BAA88751FCDB603006CB545 /* MainVC.swift */; };
 		7BAA88791FCDB603006CB545 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7BAA88771FCDB603006CB545 /* Main.storyboard */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7B14BCC41FCDF91400274EC7 /* ThoughtsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThoughtsService.swift; sourceTree = "<group>"; };
 		7BAA88701FCDB603006CB545 /* Thoughts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Thoughts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BAA88731FCDB603006CB545 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7BAA88751FCDB603006CB545 /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 			children = (
 				7BAA888B1FCDBAF2006CB545 /* AlertService.swift */,
 				7BAA88911FCDCC7D006CB545 /* CloudKitService.swift */,
+				7B14BCC41FCDF91400274EC7 /* ThoughtsService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -200,6 +203,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7BAA88761FCDB603006CB545 /* MainVC.swift in Sources */,
+				7B14BCC51FCDF91400274EC7 /* ThoughtsService.swift in Sources */,
 				7BAA88741FCDB603006CB545 /* AppDelegate.swift in Sources */,
 				7BAA888C1FCDBAF2006CB545 /* AlertService.swift in Sources */,
 				7BAA88921FCDCC7D006CB545 /* CloudKitService.swift in Sources */,

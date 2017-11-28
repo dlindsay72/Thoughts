@@ -13,11 +13,14 @@ class MainVC: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     var thoughts = [Thought]()
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
         
+        getThoughts()
     }
 
     @IBAction func comboseBtnWasPressed(_ sender: Any) {
@@ -32,6 +35,13 @@ class MainVC: UIViewController {
         
         let indexPath = IndexPath(row: 0, section: 0)
         tableView.insertRows(at: [indexPath], with: .automatic)
+    }
+    
+    func getThoughts() {
+        ThoughtsService.getThoughts { (thoughts) in
+            self.thoughts = thoughts
+            self.tableView.reloadData()
+        }
     }
     
 }
@@ -51,7 +61,7 @@ extension MainVC: UITableViewDataSource {
         let bgColorView = UIView()
         bgColorView.backgroundColor = #colorLiteral(red: 1, green: 0.5943232126, blue: 0.04868936191, alpha: 1)
         cell.textLabel?.text = thought.title
-        cell.backgroundColor = #colorLiteral(red: 0.3579174876, green: 0.7784708738, blue: 0.997761786, alpha: 0.3247538527)
+        cell.backgroundColor = #colorLiteral(red: 0.3579174876, green: 0.7784708738, blue: 0.997761786, alpha: 0.57)
         cell.textLabel?.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         cell.textLabel?.font = UIFont(name: "Snell Roundhand", size: 30)
         cell.selectedBackgroundView? = bgColorView

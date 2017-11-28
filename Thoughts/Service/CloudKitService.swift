@@ -22,4 +22,16 @@ class CloudKitService {
             print(record ?? "no ck record saved")
         }
     }
+    
+    func query(recordType: String, completion: @escaping ([CKRecord]) -> Void) {
+        let query = CKQuery(recordType: recordType, predicate: NSPredicate(value: true))
+        
+        privateDatabase.perform(query, inZoneWith: nil) { (records, error) in
+            print(error ?? "no cloud kit record error")
+            guard let records = records else { return }
+            DispatchQueue.main.async {
+                completion(records)
+            }
+        }
+    }
 }
