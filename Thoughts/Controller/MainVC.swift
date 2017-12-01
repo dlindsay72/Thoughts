@@ -15,21 +15,22 @@ class MainVC: UIViewController {
     
     var thoughts = [Thought]()
     
-    lazy var refreshControl: UIRefreshControl = {
-        let refreshControl = UIRefreshControl()
-        refreshControl.addTarget(self, action: #selector(handleRefresh(refreshControl:)), for: .valueChanged)
-        
-        return refreshControl
-    }()
-    
+//    lazy var refreshControl: UIRefreshControl = {
+//        let refreshControl = UIRefreshControl()
+//        refreshControl.addTarget(self, action: #selector(handleRefresh(refreshControl:)), for: .valueChanged)
+//
+//        return refreshControl
+//    }()
+//
     override var prefersStatusBarHidden: Bool {
         return true
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tableView.addSubview(self.refreshControl)
-        CloudKitService.shared.subscribe()
+     //   self.tableView.addSubview(self.refreshControl)
+        UserNotificationService.shared.authorize()
+        CloudKitService.shared.subscribeWithUI()
         getThoughts()
         
         NotificationCenter.default.addObserver(self, selector: #selector(handleFetch(_:)), name: NSNotification.Name("internalNotification.fetchRecord"), object: nil)
@@ -47,10 +48,10 @@ class MainVC: UIViewController {
         insert(thought: thought)
     }
     
-    @objc func handleRefresh(refreshControl: UIRefreshControl) {
-        self.tableView.reloadData()
-        refreshControl.endRefreshing()
-    }
+//    @objc func handleRefresh(refreshControl: UIRefreshControl) {
+//        self.tableView.reloadData()
+//        refreshControl.endRefreshing()
+//    }
     
     func insert(thought: Thought) {
         thoughts.insert(thought, at: 0)

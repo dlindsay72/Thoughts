@@ -47,6 +47,23 @@ class CloudKitService {
         }
     }
     
+    func subscribeWithUI() {
+        let subscription = CKQuerySubscription(recordType: Thought.recordType, predicate: NSPredicate(value: true), options: .firesOnRecordCreation)
+        let notificationInfo = CKNotificationInfo()
+        notificationInfo.title = "This is cool"
+        notificationInfo.subtitle = "A whole new iCloud"
+        notificationInfo.alertBody = "Harnessing the power of the cloud"
+        notificationInfo.shouldBadge = true
+        notificationInfo.soundName = "default"
+        
+        subscription.notificationInfo = notificationInfo
+        
+        privateDatabase.save(subscription) { (sub, error) in
+            print(error ?? "No Cloud Kit subscription error")
+            print(sub ?? "unable to subscribe")
+        }
+    }
+    
     func fetchRecord(with recordId: CKRecordID) {
         privateDatabase.fetch(withRecordID: recordId) { (record, error) in
             print(error ?? "No Cloud Kit fetch error")
